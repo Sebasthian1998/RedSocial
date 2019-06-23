@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pruebas API RESTful con Formularios</title>
+</head>
+
+<body>
+  <h1>Pruebas API RESTful con Formularios</h1>
+  <h2>Agregar Maratón</h2>
+  <form>
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="country" placeholder="country">
+    <input type="text" name="location" placeholder="location">
+    <input type="submit">
+  </form>
+  <h2>Editar Maratón</h2>
+  <form>
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="country" placeholder="country">
+    <input type="text" name="location" placeholder="location">
+    <input type="text" name="_id" placeholder="_id">
+    <input type="text" name="race_web" placeholder="web">
+    <input type="submit">
+  </form>
+  <h2>Eliminar Maratón</h2>
+  <form>
+    <input type="text" name="_id" placeholder="_id">
+    <input type="submit">
+  </form>
+  <script>
+    fetch('http://localhost:3000/api/marathons') //Accediendo a la url de la api
+      .then(res => res.json())//Para convertir info a json, trae toda la api
+      .then(res => console.log(res.data))//La data solicitada, maraton y paisess
+
+    document.forms[0].addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(`https://edmaratones.herokuapp.com/api/marathon`, {//Desde
+        method: 'post',
+        body: new FormData(e.target)//e.target se convierte en el form
+      }).then(res => res.json()).then(res => console.log(res))
+    })
+
+    document.forms[1].addEventListener('submit', e => {//Para el unico formulario
+      e.preventDefault()//Para que no se envie el formulario
+      let formData = new FormData(e.target),//Nuevo objeto del tipo formulario
+        id = formData.get('_id')//El metodo del objeto donde esta y metodo get
+
+      fetch(`http://localhost:3000/api/marathon/${id}`, {
+        method: 'put',//Para modificar
+        body: formData
+      }).then(res => res.json()).then(res => console.log(res))
+    })
+
+    document.forms[2].addEventListener('submit', e => {
+      e.preventDefault()
+      let formData = new FormData(e.target),
+        id = formData.get('_id')
+
+      fetch(`http://localhost:3000/api/marathon/${id}`, {
+        method: 'delete',//Lo mismo que editar solo que ahora se elimina
+        body: formData
+      }).then(res => res.json()).then(res => console.log(res))
+    })
+  </script>
+</body>
+
+</html>
