@@ -5,5 +5,5 @@ process.env.PORT = process.env.PORT || 3000 //Para detectar el entorno desarroll
 if (process.env.NODE_ENV === 'dev') {
   process.env.URL_DB = 'mongodb+srv://UserSebas:Eulogio1@base-de-datos-en-mongodb-ed8xm.mongodb.net/test?retryWrites=true&w=majority'
 } else {
-  process.env.URL_DB = 'mongodb://edteam:edteam2018@ds235418.mlab.com:35418/edmaratones'
+  process.env.URL_DB = ''
 }

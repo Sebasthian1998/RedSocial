@@ -1,6 +1,8 @@
 const express = require('express'),
   User = require('./routes/user'),//Archivo requerido de carpeta routes
   Publication= require('./routes/publication'),
+  Comentario=require('./routes/comentario'),
+  Reaccion=require('./routes/reaccion')
   api = express.Router()//El router de express
 
 api.get('/', async (req, res) => {//Accede a la raiz de la api inicializada en otro lado
@@ -16,5 +18,10 @@ api.post('/publication', Publication.postPublication)
 api.get('/publication/:id', Publication.getPublication)
 api.put('/publication/:id', Publication.putPublication)
 api.delete('/publication/:id', Publication.deletePublication)
-
+api.post('/reaccion',Reaccion.postReaccion)
+api.get('/reaccion/:id',Reaccion.getReaccion)
+api.delete('/reaccion/:id',Reaccion.deleteReaccion)
+api.post('/comentario',Comentario.postComentario)
+api.get('/comentario/:id',Comentario.getComentario)
+api.delete('/comentario/:id',Comentario.deleteComentario)
 module.exports = api//Exportar el router
