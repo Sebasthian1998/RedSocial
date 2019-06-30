@@ -10,10 +10,15 @@ ComentarioSchema= new Schema({
         type:Schema.Types.ObjectId,
         ref:'Reaccion'
     },
+    publication:{
+        type:Schema.Types.ObjectId,
+        ref:'Publication',
+        required:[true,'La publicacion es requerida']
+
+    },
     comentario:{
         type: String,
         required:[true, 'La reaccion de la publicacion es requerida'],
-        enum: ['Like', 'Dislike'],
         default:''
     }    
 })

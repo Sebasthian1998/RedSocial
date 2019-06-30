@@ -11,7 +11,7 @@ ReaccionSchema= new Schema({
         required:[true, 'La reaccion de la publicacion es requerida'],
         enum: ['Like', 'Dislike'],
         default:''
-    }    
+    }
 })
 
 

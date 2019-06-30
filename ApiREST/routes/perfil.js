@@ -1,4 +1,4 @@
-const User = require('../models/user'),//Requiere el modelo
+const Perfil = require('../models/perfil'),//Requiere el modelo
      apiResponse = (req, res, err, data) => {  //Una funcion que va a solicitar varios datos
     //Requerira la peticion la respuesta posible error y los datos
     if (err) {    //LO QUE HACE es refactorizar en cada peticion se realizara lo mismo practicamente
@@ -17,14 +17,14 @@ const User = require('../models/user'),//Requiere el modelo
 }
 
 
-const postUsers = async (req, res) => {//Funcion asincrona, se debe esperar respuesta del servicio
-  let users = new User(req.body)//Nuevo objeto en moongose, con esos parametros
-  await users.save((err, data) => apiResponse(req, res, err, data))//Guarda los datos en la bd
+const postPerfil = async (req, res) => {//Funcion asincrona, se debe esperar respuesta del servicio
+  let perfil = new Perfil(req.body)//Nuevo objeto en moongose, con esos parametros
+  await perfil.save((err, data) => apiResponse(req, res, err, data))//Guarda los datos en la bd
                   //Ejecuta una callback, la cual con 2 parametros mandamos a apiResponse
 }
 
-const getUsers = async (req, res) => {
-  await User.find({}).exec((err, data) => {//Se ejecuta en el modelo creado, const User
+const getPerfil = async (req, res) => {
+  await Perfil.find({}).exec((err, data) => {//Se ejecuta en el modelo creado, const User
     if (err) {                              //Si se quiere ejecutar una callback despues de ese find se pone exec
       res.status(500).send({
         message: `Error interno del servidor. ${err.message}`
@@ -43,6 +43,6 @@ const getUsers = async (req, res) => {
 
 
 module.exports = {//Exporta 
-  postUsers,
-  getUsers
+  postPerfil,
+  getPerfil
 }

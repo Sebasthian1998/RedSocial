@@ -10,10 +10,6 @@ const mongoose = require('mongoose'),
       type:Schema.Types.ObjectId,
       ref: 'Reaccion'
     },
-    comentario:{
-      type: Schema.Types.ObjectId,
-      ref:'Comentario'
-    },
     description: {
       type: String,
       required: [true, 'La descripcion de la publicacion es requerida']
