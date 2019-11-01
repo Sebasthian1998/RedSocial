@@ -34,7 +34,7 @@ const getPerfil = async (req, res) => {
         res.status(200).send({ data }) //Sino enviamos la data con .send
       } else {
         res.status(404).send({
-          message: `No existen países en el API`//Si es que no se cargan los datos
+          message: `No existen perfiles en el API`//Si es que no se cargan los datos
         })
       }
     }

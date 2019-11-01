@@ -7,19 +7,23 @@ const mongoose = require('mongoose'),
       type: String,
       required: [true, 'El nombre del usuario es requerido'],
     },
-    perfil:{
-      type:Schema.Types.ObjectId,
-      ref:'Perfil',
-      required:[true,'El perfil es requerido']
-  },
+  //   perfil:{
+  //     type:Schema.Types.ObjectId,
+  //     ref:'Perfil',
+  //     required:[true,'El perfil es requerido']
+  // },
     password: {
       type: String,
       required: [true, 'La contraseña del usuario es requerido'],
       //unique: true //Para que sea unico
     },
+    email:{
+      type:String,
+      required:[true,'El correo es requerido']
+    },
     photo:{
-      type: String,
-      required: [true, 'La foto es requerido']
+      type: String
+      //required: [true, 'La foto es requerido']
     },
     phone:{
       type: String

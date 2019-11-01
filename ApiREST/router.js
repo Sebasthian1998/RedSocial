@@ -13,7 +13,7 @@ api.get('/', async (req, res) => {//Accede a la raiz de la api inicializada en o
 })
 
 api.post('/perfil',Perfil.postPerfil)
-api.get('/perfil/:id',Perfil.getPerfil)
+api.get('/perfil',Perfil.getPerfil)
 
 api.post('/users', User.postUsers)//Metodos por los cuales se ejecutara
 api.get('/users', User.getUsers)//Metodo get post put delete
