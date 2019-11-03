@@ -4,7 +4,8 @@
     <div v-for="publication in publications" :key="publication.id" >
         <li>{{publication.description}}</li>
          <li>{{publication.user.name}}</li>
-        </div>
+    </div>
+    <img src="http://colegiojoseescandon.es/wp-content/uploads/2018/08/publicaciones.png" alt="">
 </div>
 </template>
 
@@ -35,7 +36,9 @@ export default {
     methods:{
         getPublicationsVue(){
 
-            getPublications().then(res=>{this.publications=res; console.log(this.publications)})
+            getPublications().then(res=>{this.publications=res; 
+            //console.log(this.publications)
+            })
             
         }
     }

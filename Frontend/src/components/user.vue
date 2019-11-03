@@ -1,10 +1,22 @@
 <template>
     <div>
     <h1>{{title}}</h1>
-    <ul v-for="user in users" :key="user._id">
-        <li>{{user.name}}</li>
-        <li>{{user.phone}}</li>
-    </ul>
+    <div class="container">
+    <table class="table table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Agregar a amigos</th>
+        </tr>
+        <tr v-for="user in users" :key="user._id">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td><button class="btn btn-primary">Agregar</button></td>
+        </tr>
+        
+    </table>
+    </div>
+    <img src="https://miro.medium.com/max/670/1*hSNpnHADLYF0BXbWJejZCA.jpeg" alt="">
     </div>
 </template>
 
@@ -36,7 +48,7 @@ export default {
             //getPerfil()
             getUsers().then(res=>{
                 this.users=res
-                console.log(this.users)
+                //console.log(this.users)
             })   
         }
     }

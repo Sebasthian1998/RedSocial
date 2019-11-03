@@ -4,7 +4,7 @@
         <form action="" @submit.prevent="sendLogin">
             <div class="form-group">
                 <label for="">
-                    <input class="form-control" name="username" type="text" placeholder="Usuario" v-bind:value="userlogin.username">
+                    <input class="form-control" name="username" type="text" placeholder="Nombre de Usuario" v-bind:value="userlogin.username">
                 </label>
             </div>
             <br/>
@@ -32,7 +32,7 @@ export default {
     name: 'login',
     data(){
         return{
-        title: 'Login',
+        title: 'Inicio de Sesión',
         validator:false,
         login:false,
         userlogin:{

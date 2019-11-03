@@ -1,8 +1,8 @@
 <template>
     <footer>
     <div class="row bg-secondary mt-4 p-4">
-        <div class="col-lg"><h1>Todos los derechos reservados</h1></div>
-        <div class="col-lg"><h1>2019</h1></div>
+        <div class="col-lg"><h2>Todos los derechos reservados</h2></div>
+        <div class="col-lg"><h2>2019</h2></div>
        
     </div>
     </footer>
